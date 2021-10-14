@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cvclass}[2021/10/07 v1.0 Curriculum Vitae class]
+\ProvidesClass{cvclass}[2021/10/14 v1.1 Curriculum Vitae class]
 \LoadClass[10pt,a4paper]{article}
 \pagestyle{empty}
 
@@ -137,3 +137,9 @@
         \formatphone{#3} \\
         \formatemail{#4} \\ \\
     \end{tabular}}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Last update
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\AtEndDocument{\vfill\hfill \small \em Last updated on \today.}
