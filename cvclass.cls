@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cvclass}[2021/10/16 v1.3 Curriculum Vitae class]
+\ProvidesClass{cvclass}[2021/10/16 v1.4 Curriculum Vitae class]
 \LoadClass[10pt,a4paper]{article}
 \pagestyle{empty}
 
@@ -29,6 +29,7 @@
 \RequirePackage{multirow}
 \RequirePackage{multicol}
 \RequirePackage[backend=biber,style=ieee]{biblatex}
+\RequirePackage{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Typesetting Document
@@ -56,7 +57,7 @@
 % Personal Information
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Variables (Set to empty by default)
+%% Variables (set to empty by default)
 
 \let \@name \relax \def\@name{}
 \let \@jobtitle \relax \def\@jobtitle{}
@@ -120,14 +121,44 @@
 % Publications
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% Bibliography source
+
 \addbibresource{papers.bib}
+
+%% List all items
+
 \newcommand{\makepublications}{
     \nocite{*}
     \printbibliography[title=Publications]}
+
+%% Author annotation
+
 \renewcommand*{\mkbibnamegiven}[1]{
     \ifitemannotation{highlight}{\textit{\textbf{#1}}}{#1}}
 \renewcommand*{\mkbibnamefamily}[1]{
     \ifitemannotation{highlight}{\textit{\textbf{#1}}}{#1}}
+
+%% Customized fields (map to usera, userb, and userc)
+
+\DeclareSourcemap{
+    \maps[datatype=bibtex]{
+      \map{\step[fieldsource=pdf] \step[fieldset=usera,origfieldval]}
+      \map{\step[fieldsource=poster] \step[fieldset=userb,origfieldval]}
+      \map{\step[fieldsource=video] \step[fieldset=userc,origfieldval]}}}
+
+%% Formatting customized fields
+
+\DeclareFieldFormat{usera}{\href{#1}{~~[pdf]}}
+\DeclareFieldFormat{userb}{\href{#1}{~~[poster]}}
+\DeclareFieldFormat{userc}{\href{#1}{~~[video]}}
+
+%% Place customized fields at the end of an item
+
+\AtEveryBibitem{%
+    \csappto{blx@bbx@\thefield{entrytype}}{%
+        \iffieldundef{usera}{}{\printfield{usera}}%
+        \iffieldundef{userb}{}{\printfield{userb}}%
+        \iffieldundef{userc}{}{\printfield{userc}}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % References
