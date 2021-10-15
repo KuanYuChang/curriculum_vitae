@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cvclass}[2021/10/14 v1.1 Curriculum Vitae class]
+\ProvidesClass{cvclass}[2021/10/16 v1.2 Curriculum Vitae class]
 \LoadClass[10pt,a4paper]{article}
 \pagestyle{empty}
 
@@ -27,6 +27,7 @@
 \RequirePackage{tabularx}
 \RequirePackage{multirow}
 \RequirePackage{multicol}
+\RequirePackage[numbers]{natbib}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Typesetting Document
@@ -52,8 +53,10 @@
 %% Section title
 
 \titleformat{\section}
-{\fontfamily{ptm}\selectfont\Large\scshape\bfseries}
-{}{0em}{}[{\vspace{-2pt}\titlerule[.8pt]}]
+    {\fontfamily{ptm}\selectfont\Large\scshape\bfseries}
+    {}{0em}{}[{\vspace{-2pt}\titlerule[.8pt]}]
+
+\renewcommand{\bibsection}{\section{Publications}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Personal Information
@@ -98,12 +101,12 @@
 % List of Items
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\setlist[itemize]{topsep=0pt,partopsep=0pt}
 \newcommand{\sepitem}[2]{\item \textbf{#1} \hfill #2}
-
 \newenvironment{plainitemize}[1]{
     \begin{itemize}[leftmargin=*,label={#1}]
         \setlength{\itemsep}{0pt}}{
-    \end{itemize}} 
+    \end{itemize}}
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Education
@@ -118,7 +121,18 @@
             \setlength{\itemsep}{0pt}
             #4
         \end{plainitemize}
-    \end{tabularx}}
+    \end{tabularx}
+    \vspace*{-1.5\baselineskip}}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Publications
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\makepublications}[1]{
+    \nocite{*}
+    \bibliographystyle{#1}
+    \bibliography{ieeetr}
+    \vspace*{-.2\baselineskip}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % References
