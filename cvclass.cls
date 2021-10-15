@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cvclass}[2021/10/16 v1.2 Curriculum Vitae class]
+\ProvidesClass{cvclass}[2021/10/16 v1.3 Curriculum Vitae class]
 \LoadClass[10pt,a4paper]{article}
 \pagestyle{empty}
 
@@ -19,6 +19,7 @@
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage{microtype}
+\RequirePackage{geometry}
 \RequirePackage{soul}
 \RequirePackage{titlesec}
 \RequirePackage{graphicx}
@@ -27,7 +28,7 @@
 \RequirePackage{tabularx}
 \RequirePackage{multirow}
 \RequirePackage{multicol}
-\RequirePackage[numbers]{natbib}
+\RequirePackage[backend=biber,style=ieee]{biblatex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Typesetting Document
@@ -35,16 +36,7 @@
 
 %% Margins
 
-\RequirePackage[
-    left=0.75in,
-    top=0.6in,
-    right=0.75in,
-    bottom=0.6in,
-]{geometry}
-
-%% Height of the underlines
-
-\setuldepth{Abc}
+\geometry{left=0.75in,top=0.6in,right=0.75in,bottom=0.6in}
 
 %% Paragraphs
 
@@ -56,7 +48,9 @@
     {\fontfamily{ptm}\selectfont\Large\scshape\bfseries}
     {}{0em}{}[{\vspace{-2pt}\titlerule[.8pt]}]
 
-\renewcommand{\bibsection}{\section{Publications}}
+%% Height of the underlines
+
+\setuldepth{Abc}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Personal Information
@@ -101,11 +95,9 @@
 % List of Items
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setlist[itemize]{topsep=0pt,partopsep=0pt}
 \newcommand{\sepitem}[2]{\item \textbf{#1} \hfill #2}
 \newenvironment{plainitemize}[1]{
-    \begin{itemize}[leftmargin=*,label={#1}]
-        \setlength{\itemsep}{0pt}}{
+    \begin{itemize}[leftmargin=*,label={#1},noitemsep]}{
     \end{itemize}}
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -115,24 +107,27 @@
 \newcommand{\education}[4]{
     \begin{tabularx}{\linewidth}{Xr}
         \textbf{#1} &
-            \multirow{3}{*}{\includegraphics[height=80pt]{#3}} \\ \\
-        \textit{\ul{#2}} \\
+            \multirow{5}{*}{\includegraphics[height=80pt]{#3}} \\ \\
+        \textit{\ul{#2}} \\ \\
+        \begin{minipage}[t]{\linewidth}
         \begin{plainitemize}{-}
-            \setlength{\itemsep}{0pt}
             #4
         \end{plainitemize}
-    \end{tabularx}
-    \vspace*{-1.5\baselineskip}}
+        \end{minipage}
+    \end{tabularx}}
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Publications
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\makepublications}[1]{
+\addbibresource{papers.bib}
+\newcommand{\makepublications}{
     \nocite{*}
-    \bibliographystyle{#1}
-    \bibliography{ieeetr}
-    \vspace*{-.2\baselineskip}}
+    \printbibliography[title=Publications]}
+\renewcommand*{\mkbibnamegiven}[1]{
+    \ifitemannotation{highlight}{\textit{\textbf{#1}}}{#1}}
+\renewcommand*{\mkbibnamefamily}[1]{
+    \ifitemannotation{highlight}{\textit{\textbf{#1}}}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % References
