@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cvclass}[2021/10/16 v1.4 Curriculum Vitae class]
+\ProvidesClass{cvclass}[2021/10/16 v1.5 Curriculum Vitae class]
 \LoadClass[10pt,a4paper]{article}
 \pagestyle{empty}
 
@@ -148,17 +148,17 @@
 
 %% Formatting customized fields
 
-\DeclareFieldFormat{usera}{\href{#1}{~~[pdf]}}
-\DeclareFieldFormat{userb}{\href{#1}{~~[poster]}}
-\DeclareFieldFormat{userc}{\href{#1}{~~[video]}}
+\DeclareFieldFormat{usera}{\href{#1}{[pdf]}}
+\DeclareFieldFormat{userb}{\href{#1}{[poster]}}
+\DeclareFieldFormat{userc}{\href{#1}{[video]}}
 
 %% Place customized fields at the end of an item
 
 \AtEveryBibitem{%
     \csappto{blx@bbx@\thefield{entrytype}}{%
-        \iffieldundef{usera}{}{\printfield{usera}}%
-        \iffieldundef{userb}{}{\printfield{userb}}%
-        \iffieldundef{userc}{}{\printfield{userc}}}}
+        \iffieldundef{usera}{}{\space\printfield{usera}}%
+        \iffieldundef{userb}{}{\space\printfield{userb}}%
+        \iffieldundef{userc}{}{\space\printfield{userc}}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % References
