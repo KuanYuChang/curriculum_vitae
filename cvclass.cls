@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cvclass}[2021/10/16 v1.5 Curriculum Vitae class]
+\ProvidesClass{cvclass}[2021/10/16 v1.6 Curriculum Vitae class]
 \LoadClass[10pt,a4paper]{article}
 \pagestyle{empty}
 
@@ -108,8 +108,8 @@
 \newcommand{\education}[4]{
     \begin{tabularx}{\linewidth}{Xr}
         \textbf{#1} &
-            \multirow{5}{*}{\includegraphics[height=80pt]{#3}} \\ \\
-        \textit{\ul{#2}} \\ \\
+            \multirow{3}{*}{\includegraphics[height=80pt]{#3}} \\
+        \textit{\ul{#2}} \\
         \begin{minipage}[t]{\linewidth}
         \begin{plainitemize}{-}
             #4
