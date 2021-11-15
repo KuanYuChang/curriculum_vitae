@@ -80,7 +80,7 @@
     {\LARGE \bfseries \scshape \@jobtitle} \bigskip \bigskip \\
     {\bfseries \@address} \bigskip \\
     \formatphone{\@phone} \\ 
-    \formatemail{\@email} \bigskip}
+    \formatemail{\@email}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Experiences
@@ -108,8 +108,8 @@
 \newcommand{\education}[4]{
     \begin{tabularx}{\linewidth}{Xr}
         \textbf{#1} &
-            \multirow{3}{*}{\includegraphics[height=80pt]{#3}} \\
-        \textit{\ul{#2}} \\
+            \multirow{3}{*}{\includegraphics[height=80pt]{#3}} \\ \\
+        \textit{\ul{#2}} \\ \\
         \begin{minipage}[t]{\linewidth}
         \begin{plainitemize}{-}
             #4
