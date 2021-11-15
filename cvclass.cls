@@ -123,7 +123,7 @@
 
 %% Bibliography source
 
-\addbibresource{papers.bib}
+\addbibresource{publications.bib}
 
 %% List all items
 
