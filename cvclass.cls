@@ -94,9 +94,9 @@
 % Experiences
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\experience}[5]{
+\newcommand{\experience}[6]{
     \begin{tabularx}{\linewidth}{Xr}
-        \textbf{#1} & \multirow{4}{*}{\includegraphics[height=40pt]{#5}} \\
+        \textbf{#1} & \multirow{4}{*}{\includegraphics[#5]{#6}} \\
         \textit{#2} \\ \textit{#3} \\ #4
     \end{tabularx}}
 
@@ -113,14 +113,14 @@
 % Education
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\education}[4]{
+\newcommand{\education}[5]{
     \begin{tabularx}{\linewidth}{Xr}
         \textbf{#1} &
-            \multirow{3}{*}{\includegraphics[height=80pt]{#3}} \\ \\
+            \multirow{3}{*}{\includegraphics[#3]{#4}} \\ \\
         \textit{\ul{#2}} \\ \\
         \begin{minipage}[t]{\linewidth}
         \begin{plainitemize}{-}
-            #4
+            #5
         \end{plainitemize}
         \end{minipage}
     \end{tabularx}}
