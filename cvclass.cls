@@ -1,15 +1,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Copyright (c) 2021 Kuan-Yu Chang
+% Copyright (c) 2021, 2022 Kuan-Yu Chang
 %
 % This file may be distributed and/or modified
 %
 % 1. under the LaTeX Project Public License and/or
 % 2. under the GNU Public License.
 % 
+% The latest version of this file can be found at:
+%.   https://github.com/yu020009/curriculum_vitae
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cvclass}[2021/10/16 v1.6 Curriculum Vitae class]
+\ProvidesClass{cvclass}[2022/1/11 v1.7 Curriculum Vitae class]
 \LoadClass[10pt,a4paper]{article}
 \pagestyle{empty}
 
@@ -76,11 +78,17 @@
 \newcommand{\formatphone}[1]{\textbf{Phone:} \texttt{#1}}
 \newcommand{\formatemail}[1]{\textbf{Email:} \href{mailto:#1}{\texttt{#1}}}
 \newcommand{\makeinfo}{
-    {\Huge \bfseries \scshape \@name} \bigskip \bigskip \bigskip \\
-    {\LARGE \bfseries \scshape \@jobtitle} \bigskip \bigskip \\
-    {\bfseries \@address} \bigskip \\
-    \formatphone{\@phone} \\ 
-    \formatemail{\@email}}
+    \ifx\@name\empty\else
+        {\Huge \bfseries \scshape \@name} \bigskip \bigskip \bigskip \\
+    \fi \ifx\@jobtitle\empty\else
+        {\LARGE \bfseries \scshape \@jobtitle} \bigskip \bigskip \\
+    \fi \ifx\@address\empty\else
+        {\bfseries \@address} \bigskip \\
+    \fi \ifx\@phone\empty\else
+        \formatphone{\@phone} \\ 
+    \fi \ifx\@email\empty\else
+        \formatemail{\@email}
+    \fi}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Experiences
