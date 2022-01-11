@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Copyright (c) 2021, 2022 Kuan-Yu Chang
 %
 % This file may be distributed and/or modified
@@ -7,8 +7,8 @@
 % 2. under the GNU Public License.
 % 
 % The latest version of this file can be found at:
-%.   https://github.com/yu020009/curriculum_vitae
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     https://github.com/yu020009/curriculum_vitae
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{cvclass}[2022/1/11 v1.7 Curriculum Vitae class]
