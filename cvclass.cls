@@ -11,7 +11,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cvclass}[2022/1/11 v1.7 Curriculum Vitae class]
+\ProvidesClass{cvclass}[2022/09/01 v1.8 Curriculum Vitae class]
 \LoadClass[10pt,a4paper]{article}
 \pagestyle{empty}
 
@@ -30,7 +30,7 @@
 \RequirePackage{tabularx}
 \RequirePackage{multirow}
 \RequirePackage{multicol}
-\RequirePackage[backend=biber,style=ieee]{biblatex}
+\RequirePackage[backend=biber,style=ieee,dashed=false]{biblatex}
 \RequirePackage{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
