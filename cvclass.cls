@@ -13,7 +13,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{cvclass}[2022/09/01 v1.8 Curriculum Vitae class]
 \LoadClass[10pt,a4paper]{article}
-\pagestyle{empty}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Require Packages
@@ -22,6 +21,7 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{microtype}
 \RequirePackage{geometry}
+\RequirePackage{fancyhdr}
 \RequirePackage{soul}
 \RequirePackage{titlesec}
 \RequirePackage{graphicx}
@@ -39,7 +39,7 @@
 
 %% Margins
 
-\geometry{left=0.75in,top=0.6in,right=0.75in,bottom=0.6in}
+\geometry{left=0.75in,top=0.6in,right=0.75in,bottom=0.8in}
 
 %% Paragraphs
 
@@ -54,6 +54,14 @@
 %% Height of the underlines
 
 \setuldepth{Abc}
+
+%% Page Headers and Footers
+
+\pagestyle{fancyplain}
+\fancyhf{} % remove everything
+\renewcommand{\headrulewidth}{0pt} % remove lines as well
+\renewcommand{\footrulewidth}{0pt}
+\rfoot{\small \em Last updated on \today.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Personal Information
@@ -185,9 +193,3 @@
         \formatphone{#3} \\
         \formatemail{#4} \\ \\
     \end{tabular}}
-    
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Last update
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\AtEndDocument{\vfill\hfill \small \em Last updated on \today.}
