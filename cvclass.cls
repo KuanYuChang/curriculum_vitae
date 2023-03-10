@@ -60,7 +60,7 @@
 \pagestyle{fancyplain}
 \fancyhf{} % remove everything
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
-\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.5pt}
 \rfoot{\small \em Last updated on \today.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
