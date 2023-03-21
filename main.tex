@@ -34,13 +34,23 @@
 \experience{Verification IP (VIP) Engineer}
     {Upper Layer Group of PCIe VIP Team}
     {Avery Design Systems, Inc., Taiwan\footnote{Siemens Digital Industries Software acquired Avery Design Systems, Inc. in March 2023. \href{https://newsroom.sw.siemens.com/en-US/siemens-avery-design-systems/}{[Read more]}}}
-    {Jul. 2021 - Apr. 2023}
+    {Jul. 2021 - Apr. 2023} % 2021/7/19 - 2023/4/10
     {height=40pt}{logos-png/avery-design-systems.png}
 \begin{plainitemize}{-}
     \item PCI Express\textsuperscript{\tiny\textregistered} (PCIe) Revision 6.0.1 -- \textit{served as the de facto interconnect of choice for nearly two decades}
     \begin{plainitemize}{\(\cdot\)}
         \item Enhance the Bus Functional Model (BFM) to support Flit mode.
+        \begin{plainitemize}{+}
+            \item Flit\_Marker mechanism
+            \item Flit Ack, Nak, and Discard Rules
+            \item Flit Replay Rules (especially the Selective Replay)
+        \end{plainitemize}
         \item Enhance / Develop compliance test cases for Flit mode.
+        \begin{plainitemize}{+}
+            \item 14-Bit Tag mechanism
+            \item Orthogonal Header Content (OHC) of Transaction Layer Packets
+            \item Shared Flow Control with extended virtual channels
+        \end{plainitemize}
     \end{plainitemize}
     \item Streaming Fabric Interface (SFI) -- \textit{mapping Load/Store protocols (like PCIe) between an agent and a fabric}
     \begin{plainitemize}{\(\cdot\)}
