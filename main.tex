@@ -9,6 +9,16 @@
 \usepackage{charter}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting Date and Time
+% Reference:
+%   https://www.ctan.org/pkg/datetime
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{datetime}
+\newdateformat{shortmmyyformat}{\shortmonthname[\THEMONTH]. \THEYEAR}
+\newcommand{\simplemmyy}[3]{\shortmmyyformat\formatdate{#3}{#2}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Personal Information
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -18,7 +28,6 @@
 %     No. 76, Section 1, Zhongxiao E Rd \\
 %     Zhongzheng Dist., Taipei City, Taiwan}
 % \phone{+886-2-2327-8766}
-% \email{kychang@avery-design.com.tw}
 \email{kychang@duck.com}
 
 \begin{document}
@@ -34,7 +43,7 @@
 \experience{Verification IP Engineer (RDSS)\footnote{RDSS stands for Research and Development Substitute Services.}}
     {Upper Layer Group of PCIe VIP Team}
     {Avery Design Systems, Inc., Taiwan\footnote{Siemens Digital Industries Software acquired Avery Design Systems, Inc. in March 2023. \href{https://newsroom.sw.siemens.com/en-US/siemens-avery-design-systems/}{[Read more]}}}
-    {Jul. 2021 - Apr. 2023} % 2021/7/19 - 2023/4/10
+    {\simplemmyy{2021}{7}{19} - \simplemmyy{2023}{4}{10}}
     {height=40pt}{logos-png/avery-design-systems.png}
     \begin{plainitemize}{-}
         \item PCI Express\textsuperscript{\tiny\textregistered} (PCIe) Revision 6.0.1 -- \textit{served as the de facto interconnect of choice for nearly two decades}
@@ -77,11 +86,11 @@
 \education{National Tsing Hua University, Hsinchu, Taiwan}
         {Advisor: Prof. Chun-Yi Lee}
         {height=80pt}{logos-png/national-tsing-hua-university.png}{
-    \item M.S. in Computer Science -- \textit{Jun. 2021} (GPA: \textbf{4.22} / 4.30)
+    \item M.S. in Computer Science -- \textit{\simplemmyy{2021}{6}{30}} (GPA: \textbf{4.22} / 4.30)
     \begin{plainitemize}{\(\cdot\)}
         \item Thesis Title: \textit{Mapping Nearest Neighbor Compliant Quantum Circuits onto a 2-D Hexagonal Architecture} \href{https://hdl.handle.net/11296/dpttkc}{[NDLTD]}
     \end{plainitemize}
-    \item B.S. in Interdisciplinary Program of Science -- \textit{Jun. 2017} (CS-Major GPA: \textbf{4.10} / 4.30)
+    \item B.S. in Interdisciplinary Program of Science -- \textit{\simplemmyy{2017}{6}{30}} (CS-Major GPA: \textbf{4.10} / 4.30)
     \begin{plainitemize}{\(\cdot\)}
         \item Double expertise in \textit{Computer Science} and \textit{Chemistry}
     \end{plainitemize}}
