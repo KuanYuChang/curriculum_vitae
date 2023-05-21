@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Copyright (c) 2021, 2022 Kuan-Yu Chang
+% Copyright (c) 2021-2023 Kuan-Yu Chang
 %
 % This file may be distributed and/or modified
 %
@@ -11,7 +11,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cvclass}[2022/09/01 v1.8 Curriculum Vitae class]
+\ProvidesClass{cvclass}[2023/05/22 v1.9 Curriculum Vitae class]
 \LoadClass[10pt,a4paper]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -61,7 +61,8 @@
 \fancyhf{} % remove everything
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
 \renewcommand{\footrulewidth}{0.5pt}
-\rfoot{\small \em Last updated on \today.}
+\rfoot{\small {\em Last updated on \today.} \ifx\@cverpo\empty\else
+    \href{\@latestver}{[Latest version]}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Personal Information
@@ -74,12 +75,14 @@
 \let \@address \relax \def\@address{}
 \let \@phone \relax \def\@phone{}
 \let \@email \relax \def\@email{}
+\let \@latestver \relax \def\@latestver{}
 
 \def \name#1{\def\@name{#1}}
 \def \jobtitle#1{\def\@jobtitle{#1}}
 \def \address#1{\def\@address{#1}}
 \def \phone#1{\def\@phone{#1}}
 \def \email#1{\def\@email{#1}}
+\def \latestver#1{\def\@latestver{#1}}
 
 %% Formatting
 
