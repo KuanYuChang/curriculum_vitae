@@ -61,8 +61,8 @@
 \fancyhf{} % remove everything
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
 \renewcommand{\footrulewidth}{0.5pt}
-\rfoot{\small {\em Last updated on \today.} \ifx\@cverpo\empty\else
-    \href{\@latestver}{[Latest version]}}
+\rfoot{\small {\em Last updated on \today.} \ifx\@latestver\empty\else
+    \href{\@latestver}{[Latest version]}\fi}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Personal Information
