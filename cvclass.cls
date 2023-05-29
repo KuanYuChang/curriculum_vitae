@@ -31,7 +31,6 @@
 \RequirePackage{multirow}
 \RequirePackage{multicol}
 \RequirePackage[backend=biber,style=ieee,dashed=false]{biblatex}
-\RequirePackage{hyperref}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Typesetting Document
