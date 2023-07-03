@@ -154,7 +154,7 @@
 \renewcommand*{\mkbibnamegiven}[1]{
     \ifitemannotation{highlight}{\textit{\textbf{#1}}}{#1}}
 \renewcommand*{\mkbibnamefamily}[1]{
-    \ifitemannotation{highlight}{\textit{\textbf{#1}}}{#1}}
+    \ifitemannotation{highlight}{\textit{\textbf{#1\textsuperscript{*}}}}{#1}}
 
 %% Customized fields (map to usera, userb, and userc)
 
