@@ -8,6 +8,10 @@
 % 
 % The latest version of this file can be found at:
 %     https://github.com/yu020009/curriculum_vitae
+%
+% Overleaf Settings
+%    Compiler: pdfLaTeX
+%    Tex Live version: 2019 (Legacy)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
@@ -22,7 +26,6 @@
 \RequirePackage{microtype}
 \RequirePackage{geometry}
 \RequirePackage{fancyhdr}
-\RequirePackage{soul}
 \RequirePackage{titlesec}
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
@@ -49,10 +52,6 @@
 \titleformat{\section}
     {\fontfamily{ptm}\selectfont\Large\scshape\bfseries}
     {}{0em}{}[{\vspace{-2pt}\titlerule[.8pt]}]
-
-%% Height of the underlines
-
-\setuldepth{Abc}
 
 %% Page Headers and Footers
 
@@ -116,7 +115,7 @@
 
 \newcommand{\sepitem}[2]{\item \textbf{#1} \hfill #2}
 \newenvironment{plainitemize}[1]{
-    \begin{itemize}[leftmargin=*,label={#1},noitemsep]}{
+    \begin{itemize}[leftmargin=1.5em,label={#1},noitemsep]}{
     \end{itemize}}
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -127,7 +126,7 @@
     \begin{tabularx}{\linewidth}{Xr}
         \textbf{#1} &
             \multirow{3}{*}{\includegraphics[#3]{#4}} \\ \\
-        \textit{\ul{#2}} \\ \\
+        \textit{\underline{#2}} \\ \\
         \begin{minipage}[t]{\linewidth}
         \begin{plainitemize}{-}
             #5
@@ -147,14 +146,17 @@
 
 \newcommand{\makepublications}{
     \nocite{*}
-    \printbibliography[title=Publications]}
+    \defbibnote{annote}{(\textbf{*} denotes the communication author)}
+    \printbibliography[title=Publications,prenote=annote]}
 
 %% Author annotation
+%% Reference:
+%%   https://tex.stackexchange.com/a/561064
 
-\renewcommand*{\mkbibnamegiven}[1]{
-    \ifitemannotation{highlight}{\textit{\textbf{#1}}}{#1}}
-\renewcommand*{\mkbibnamefamily}[1]{
-    \ifitemannotation{highlight}{\textit{\textbf{#1\textsuperscript{*}}}}{#1}}
+\renewcommand*{\mkbibcompletename}[1]{%
+    \ifitemannotation{hl}{\textbf{\underline{#1}}}{%
+    \ifitemannotation{comm}{#1\textbf{*}}{%
+    \ifitemannotation{hlcomm}{\textbf{\underline{#1}*}}{#1}}}}
 
 %% Customized fields (map to usera, userb, and userc)
 
