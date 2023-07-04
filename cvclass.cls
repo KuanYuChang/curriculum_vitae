@@ -113,10 +113,8 @@
 % List of Items
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\setlist[itemize]{leftmargin=1.5em,noitemsep}
 \newcommand{\sepitem}[2]{\item \textbf{#1} \hfill #2}
-\newenvironment{plainitemize}[1]{
-    \begin{itemize}[leftmargin=1.5em,label={#1},noitemsep]}{
-    \end{itemize}}
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Education
@@ -128,9 +126,9 @@
             \multirow{3}{*}{\includegraphics[#3]{#4}} \\ \\
         \textit{\underline{#2}} \\ \\
         \begin{minipage}[t]{\linewidth}
-        \begin{plainitemize}{-}
+        \begin{itemize}
             #5
-        \end{plainitemize}
+        \end{itemize}
         \end{minipage}
     \end{tabularx}}
     
