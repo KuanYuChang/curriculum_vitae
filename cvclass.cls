@@ -26,6 +26,7 @@
 \RequirePackage{microtype}
 \RequirePackage{geometry}
 \RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
 \RequirePackage{titlesec}
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
@@ -59,8 +60,10 @@
 \fancyhf{} % remove everything
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
 \renewcommand{\footrulewidth}{0.5pt}
-\rfoot{\small {\em Last updated on \today.} \ifx\@latestver\empty\else
-    \href{\@latestver}{[Latest version]}\fi}
+\lfoot{\small {\em This curriculum vitae was last updated on \today.}
+    \ifx\@latestver\empty\else
+        \href{\@latestver}{[Latest version]}\fi}
+\rfoot{Page \thepage{} of \pageref*{LastPage}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Personal Information
@@ -125,11 +128,7 @@
         \textbf{#1} &
             \multirow{3}{*}{\includegraphics[#3]{#4}} \\ \\
         \textit{\underline{#2}} \\ \\
-        \begin{minipage}[t]{\linewidth}
-        \begin{itemize}
-            #5
-        \end{itemize}
-        \end{minipage}
+        \begin{minipage}[t]{\linewidth} #5 \end{minipage}
     \end{tabularx}}
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -162,13 +161,15 @@
     \maps[datatype=bibtex]{
       \map{\step[fieldsource=pdf] \step[fieldset=usera,origfieldval]}
       \map{\step[fieldsource=poster] \step[fieldset=userb,origfieldval]}
-      \map{\step[fieldsource=video] \step[fieldset=userc,origfieldval]}}}
+      \map{\step[fieldsource=video] \step[fieldset=userc,origfieldval]}
+      \map{\step[fieldsource=demo] \step[fieldset=userd,origfieldval]}}}
 
 %% Formatting customized fields
 
 \DeclareFieldFormat{usera}{\href{#1}{[pdf]}}
 \DeclareFieldFormat{userb}{\href{#1}{[poster]}}
 \DeclareFieldFormat{userc}{\href{#1}{[video]}}
+\DeclareFieldFormat{userd}{\href{#1}{[demo]}}
 
 %% Place customized fields at the end of an item
 
@@ -176,7 +177,8 @@
     \csappto{blx@bbx@\thefield{entrytype}}{%
         \iffieldundef{usera}{}{\space\printfield{usera}}%
         \iffieldundef{userb}{}{\space\printfield{userb}}%
-        \iffieldundef{userc}{}{\space\printfield{userc}}}}
+        \iffieldundef{userc}{}{\space\printfield{userc}}%
+        \iffieldundef{userd}{}{\space\printfield{userd}}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % References
