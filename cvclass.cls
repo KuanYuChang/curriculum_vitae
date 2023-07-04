@@ -63,7 +63,7 @@
 \lfoot{\small {\em This curriculum vitae was last updated on \today.}
     \ifx\@latestver\empty\else
         \href{\@latestver}{[Latest version]}\fi}
-\rfoot{Page \thepage{} of \pageref*{LastPage}}
+\rfoot{\small Page \thepage{} of \pageref*{LastPage}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Personal Information
