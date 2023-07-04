@@ -140,10 +140,13 @@
 \addbibresource{publications.bib}
 
 %% List all items
+%% Reference:
+%%   http://www.hansenlab.org/cv_bibliography_tex
 
 \newcommand{\makepublications}{
     \nocite{*}
-    \defbibnote{annote}{(\textbf{*} denotes the communication author)}
+    \defbibnote{annote}{The H-indices are collected from Scimago Journal \& Country Rank. \\
+    The symbol \textbf{*} denotes the communication author.}
     \printbibliography[title=Publications,prenote=annote]}
 
 %% Author annotation
@@ -155,21 +158,32 @@
     \ifitemannotation{comm}{#1\textbf{*}}{%
     \ifitemannotation{hlcomm}{\textbf{\underline{#1}*}}{#1}}}}
 
-%% Customized fields (map to usera, userb, and userc)
+%% Customized fields (map to usera, userb, etc.)
 
 \DeclareSourcemap{
     \maps[datatype=bibtex]{
-      \map{\step[fieldsource=pdf] \step[fieldset=usera,origfieldval]}
-      \map{\step[fieldsource=poster] \step[fieldset=userb,origfieldval]}
-      \map{\step[fieldsource=video] \step[fieldset=userc,origfieldval]}
-      \map{\step[fieldsource=demo] \step[fieldset=userd,origfieldval]}}}
+      \map{\step[fieldsource=hindex] \step[fieldset=usera,origfieldval]}
+      \map{\step[fieldsource=accmeta] \step[fieldset=userb,origfieldval]}
+      \map{\step[fieldsource=accrate] \step[fieldset=userc,origfieldval]}
+      \map{\step[fieldsource=pdf] \step[fieldset=userd,origfieldval]}
+      \map{\step[fieldsource=video] \step[fieldset=usere,origfieldval]}
+      \map{\step[fieldsource=demo] \step[fieldset=userf,origfieldval]}}}
 
 %% Formatting customized fields
 
-\DeclareFieldFormat{usera}{\href{#1}{[pdf]}}
-\DeclareFieldFormat{userb}{\href{#1}{[poster]}}
-\DeclareFieldFormat{userc}{\href{#1}{[video]}}
-\DeclareFieldFormat{userd}{\href{#1}{[demo]}}
+\newcommand{\hindexformat}[1]{[H-index: \textbf{#1}]}
+\newcommand{\accmetaformat}[1]{[#1]}
+\newcommand{\accrateformat}[1]{[Acceptance Rate: \textbf{#1}]}
+\newcommand{\pdfformat}[1]{\href{#1}{[pdf]}}
+\newcommand{\videoformat}[1]{\href{#1}{[video]}}
+\newcommand{\demoformat}[1]{\href{#1}{[demo]}}
+
+\DeclareFieldFormat{usera}{\hindexformat{#1}}
+\DeclareFieldFormat{userb}{\accmetaformat{#1}}
+\DeclareFieldFormat{userc}{\accrateformat{#1}}
+\DeclareFieldFormat{userd}{\pdfformat{#1}}
+\DeclareFieldFormat{usere}{\videoformat{#1}}
+\DeclareFieldFormat{userf}{\demoformat{#1}}
 
 %% Place customized fields at the end of an item
 
@@ -177,8 +191,10 @@
     \csappto{blx@bbx@\thefield{entrytype}}{%
         \iffieldundef{usera}{}{\space\printfield{usera}}%
         \iffieldundef{userb}{}{\space\printfield{userb}}%
-        \iffieldundef{userc}{}{\space\printfield{userc}}%
-        \iffieldundef{userd}{}{\space\printfield{userd}}}}
+        \iffieldundef{userc}{}{\space\printfield{userb}}%
+        \iffieldundef{userd}{}{\space\printfield{userd}}%
+        \iffieldundef{usere}{}{\space\printfield{usere}}%
+        \iffieldundef{userf}{}{\space\printfield{userf}}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % References

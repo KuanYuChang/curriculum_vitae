@@ -1,10 +1,27 @@
-@string{tcad = "IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (\textbf{TCAD})"}
-@string{telo = "ACM Transactions on Evolutionary Learning and Optimization (\textbf{TELO})"}
-@string{tnnls = "IEEE Transactions on Neural Networks and Learning Systems (\textbf{TNNLS})"}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Abbreviations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@string{TCAD = "IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (\textbf{TCAD})"}
+@string{TELO = "ACM Transactions on Evolutionary Learning and Optimization (\textbf{TELO})"}
+@string{TNNLS = "IEEE Transactions on Neural Networks and Learning Systems (\textbf{TNNLS})"}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% H-index
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% TCAD: https://www.scimagojr.com/journalsearch.php?q=27724&tip=sid
+@string{TCADhindex = "126"}
+% TNNLS: https://www.scimagojr.com/journalsearch.php?q=21100235616&tip=sid
+@string{TNNLShindex = "243"}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Journal Papers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 @article{chang2022mapping,
     author={Chang, Kaun-Yu and Lee, Chun-Yi},
-    journal=tcad, 
+    journal=TCAD, 
     title={{Mapping Nearest Neighbor Compliant Quantum Circuits onto a 2-D Hexagonal Architecture}},
     year={2022},
     month={10},
@@ -14,11 +31,12 @@
     doi={10.1109/TCAD.2021.3127868},
     issn={1937-4151},
     author+an={1=hl; 2=comm},
+    hindex=TCADhindex,
 }
 
 @article{chang2022reusability,
     author={Chang, Yi-Hsiang and Chang, Kuan-Yu and Kuo, Henry and Lee, Chun-Yi},
-    journal=telo,
+    journal=TELO,
     title={{Reusability and Transferability of Macro Actions for Reinforcement Learning}},
     year={2022},
     month={4},
@@ -33,7 +51,7 @@
 
 @article{chen2022composing,
     author={Chen, Yu-Ming and Chang, Kaun-Yu and Liu, Chien and Hsiao, Tsu-Ching and Hong, Zhang-Wei and Lee, Chun-Yi},
-    journal=tnnls, 
+    journal=TNNLS, 
     title={{Composing Synergistic Macro Actions for Reinforcement Learning Agents}}, 
     year={2022},
     volume={},
@@ -41,5 +59,6 @@
     pages={1-8},
     doi={10.1109/TNNLS.2022.3213606},
     author+an={2=hl; 6=comm},
-    note={Early Access},
+    addendum={Early Access},
+    hindex=TNNLShindex,
 }
