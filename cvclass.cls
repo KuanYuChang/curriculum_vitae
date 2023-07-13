@@ -11,15 +11,15 @@
 %
 % Overleaf Settings
 %    Compiler: pdfLaTeX
-%    Tex Live version: 2019 (Legacy)
+%    Tex Live version: 2022
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cvclass}[2023/07/04 v1.10 Curriculum Vitae class]
+\ProvidesClass{cvclass}[2023/07/13 v1.11 Curriculum Vitae class]
 \LoadClass[10pt,a4paper]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Require Packages
+% Required Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage[T1]{fontenc}
@@ -28,13 +28,14 @@
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
 \RequirePackage{titlesec}
+\RequirePackage[parfill]{parskip}
 \RequirePackage{graphicx}
 \RequirePackage{hyperref}
 \RequirePackage{enumitem}
 \RequirePackage{tabularx}
 \RequirePackage{multirow}
 \RequirePackage{multicol}
-\RequirePackage[backend=biber,style=ieee,dashed=false]{biblatex}
+\RequirePackage[style=ieee,maxbibnames=99,dashed=false,defernumbers=true]{biblatex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Typesetting Document
@@ -47,6 +48,7 @@
 %% Paragraphs
 
 \setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
 
 %% Section title
 
@@ -54,7 +56,7 @@
     {\fontfamily{ptm}\selectfont\Large\scshape\bfseries}
     {}{0em}{}[{\vspace{-2pt}\titlerule[.8pt]}]
 
-%% Page Headers and Footers
+%% Page headers and footers
 
 \pagestyle{fancyplain}
 \fancyhf{} % remove everything
@@ -64,6 +66,10 @@
     \ifx\@latestver\empty\else
         \href{\@latestver}{[Latest version]}\fi}
 \rfoot{\small Page \thepage{} of \pageref*{LastPage}}
+
+%% List of items
+
+\setlist[itemize]{leftmargin=1.5em,noitemsep}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Personal Information
@@ -106,18 +112,11 @@
 % Experiences
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\experience}[6]{
+\newcommand{\experience}[7]{
     \begin{tabularx}{\linewidth}{Xr}
         \textbf{#1} & \multirow{4}{*}{\includegraphics[#5]{#6}} \\
         \textit{#2} \\ \textit{#3} \\ #4
-    \end{tabularx}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% List of Items
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\setlist[itemize]{leftmargin=1.5em,noitemsep}
-\newcommand{\sepitem}[2]{\item \textbf{#1} \hfill #2}
+    \end{tabularx} #7}
     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Education
@@ -145,8 +144,7 @@
 
 \newcommand{\makepublications}{
     \nocite{*}
-    \defbibnote{annote}{The H-indices are collected from Scimago Journal \& Country Rank. \\
-    The symbol \textbf{*} denotes the communication author.}
+    \defbibnote{annote}{(* denotes the communication author)}
     \printbibliography[title=Publications,prenote=annote]}
 
 %% Author annotation
@@ -163,8 +161,8 @@
 \DeclareSourcemap{
     \maps[datatype=bibtex]{
       \map{\step[fieldsource=hindex] \step[fieldset=usera,origfieldval]}
-      \map{\step[fieldsource=accmeta] \step[fieldset=userb,origfieldval]}
-      \map{\step[fieldsource=accrate] \step[fieldset=userc,origfieldval]}
+      \map{\step[fieldsource=accrate] \step[fieldset=userb,origfieldval]}
+      \map{\step[fieldsource=accmeta] \step[fieldset=userc,origfieldval]}
       \map{\step[fieldsource=pdf] \step[fieldset=userd,origfieldval]}
       \map{\step[fieldsource=video] \step[fieldset=usere,origfieldval]}
       \map{\step[fieldsource=demo] \step[fieldset=userf,origfieldval]}}}
@@ -172,15 +170,15 @@
 %% Formatting customized fields
 
 \newcommand{\hindexformat}[1]{[H-index: \textbf{#1}]}
-\newcommand{\accmetaformat}[1]{[#1]}
 \newcommand{\accrateformat}[1]{[Acceptance Rate: \textbf{#1}]}
+\newcommand{\accmetaformat}[1]{[#1]}
 \newcommand{\pdfformat}[1]{\href{#1}{[pdf]}}
 \newcommand{\videoformat}[1]{\href{#1}{[video]}}
 \newcommand{\demoformat}[1]{\href{#1}{[demo]}}
 
 \DeclareFieldFormat{usera}{\hindexformat{#1}}
-\DeclareFieldFormat{userb}{\accmetaformat{#1}}
-\DeclareFieldFormat{userc}{\accrateformat{#1}}
+\DeclareFieldFormat{userb}{\accrateformat{#1}}
+\DeclareFieldFormat{userc}{\accmetaformat{#1}}
 \DeclareFieldFormat{userd}{\pdfformat{#1}}
 \DeclareFieldFormat{usere}{\videoformat{#1}}
 \DeclareFieldFormat{userf}{\demoformat{#1}}
@@ -191,7 +189,7 @@
     \csappto{blx@bbx@\thefield{entrytype}}{%
         \iffieldundef{usera}{}{\space\printfield{usera}}%
         \iffieldundef{userb}{}{\space\printfield{userb}}%
-        \iffieldundef{userc}{}{\space\printfield{userb}}%
+        \iffieldundef{userc}{}{\space\printfield{userc}}%
         \iffieldundef{userd}{}{\space\printfield{userd}}%
         \iffieldundef{usere}{}{\space\printfield{usere}}%
         \iffieldundef{userf}{}{\space\printfield{userf}}}}
@@ -202,6 +200,7 @@
 
 \newenvironment{references}{
     \section{References}
+    \vspace{1em}
     \multicolsep0pt
     \begin{multicols}{2}}{
     \end{multicols}}
