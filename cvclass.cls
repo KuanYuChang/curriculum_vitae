@@ -15,7 +15,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cvclass}[2023/07/13 v1.11 Curriculum Vitae class]
+\ProvidesClass{cvclass}[2023/08/04 v1.12 Curriculum Vitae class]
 \LoadClass[10pt,a4paper]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,7 +62,7 @@
 \fancyhf{} % remove everything
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
 \renewcommand{\footrulewidth}{0.5pt}
-\lfoot{\small {\em This curriculum vitae was last updated on \today.}
+\lfoot{\small {\em This curriculum vitae was last updated on \@lastupdate.}
     \ifx\@latestver\empty\else
         \href{\@latestver}{[Latest version]}\fi}
 \rfoot{\small Page \thepage{} of \pageref*{LastPage}}
@@ -83,6 +83,7 @@
 \let \@phone \relax \def\@phone{}
 \let \@email \relax \def\@email{}
 \let \@latestver \relax \def\@latestver{}
+\let \@lastupdate \relax \def\@lastupdate{\today}
 
 \def \name#1{\def\@name{#1}}
 \def \jobtitle#1{\def\@jobtitle{#1}}
@@ -90,6 +91,7 @@
 \def \phone#1{\def\@phone{#1}}
 \def \email#1{\def\@email{#1}}
 \def \latestver#1{\def\@latestver{#1}}
+\def \lastupdate#1{\def\@lastupdate{#1}}
 
 %% Formatting
 
