@@ -11,7 +11,7 @@
 %
 % Overleaf Settings
 %    Compiler: pdfLaTeX
-%    Tex Live version: 2022
+%    Tex Live version: 2019 (Legacy)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
