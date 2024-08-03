@@ -7,7 +7,7 @@
 % 2. under the GNU Public License.
 % 
 % The latest version of this file can be found at:
-%     https://github.com/yu020009/curriculum_vitae
+%     https://github.com/KuanYuChang/curriculum_vitae
 %
 % Overleaf Settings
 %    Compiler: pdfLaTeX
