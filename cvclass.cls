@@ -147,6 +147,7 @@
 \newcommand{\makepublications}{
     \nocite{*}
     \defbibnote{annote}{(* denotes the communication author)}
+    \setlength\bibitemsep{0.5\baselineskip}
     \printbibliography[title=Publications,prenote=annote]}
 
 %% Author annotation
