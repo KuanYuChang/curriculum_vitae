@@ -1,4 +1,4 @@
-Copyright (c) 2021-2025 Kuan-Yu Chang
+Copyright (c) 2021-2026 Kuan-Yu Chang
 
 This file may be distributed and/or modified
 
@@ -9,5 +9,5 @@ The latest version of this file can be found at:
 - https://github.com/KuanYuChang/curriculum_vitae
 
 Overleaf Settings
-- Compiler: pdfLaTeX
-- Tex Live version: 2019 (Legacy)
+- Compiler: XeLaTeX
+- Tex Live version: 2022
