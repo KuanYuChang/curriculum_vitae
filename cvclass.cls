@@ -24,7 +24,7 @@
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage{microtype}
-\RequirePackage{textcomp}
+\RequirePackage{newtxtext}
 \RequirePackage{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
