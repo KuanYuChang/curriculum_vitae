@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Copyright (c) 2021-2025 Kuan-Yu Chang
+% Copyright (c) 2021-2026 Kuan-Yu Chang
 %
 % This file may be distributed and/or modified
 %
@@ -15,7 +15,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cvclass}[2023/08/04 v1.12 Curriculum Vitae class]
+\ProvidesClass{cvclass}[2026/01/25 v1.13 Curriculum Vitae class]
 \LoadClass[10pt,a4paper]{article}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,6 +24,7 @@
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage{microtype}
+\RequirePackage{textcomp}
 \RequirePackage{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
