@@ -10,8 +10,8 @@
 %     https://github.com/KuanYuChang/curriculum_vitae
 %
 % Overleaf Settings
-%    Compiler: pdfLaTeX
-%    Tex Live version: 2019 (Legacy)
+%    Compiler: XeLaTeX
+%    Tex Live version: 2022
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
@@ -24,7 +24,7 @@
 
 \RequirePackage[T1]{fontenc}
 \RequirePackage{microtype}
-\RequirePackage{newtxtext}
+\RequirePackage{textcomp}
 \RequirePackage{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
