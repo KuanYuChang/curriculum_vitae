@@ -63,7 +63,7 @@
 \fancyhf{} % remove everything
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
 \renewcommand{\footrulewidth}{0.5pt}
-\lfoot{\small {\em This curriculum vitae was last updated on \@lastupdate.}
+\lfoot{\small {\em This \@lasttitle{} was last updated on \@lastupdate.}
     \ifx\@latestver\empty\else
         \href{\@latestver}{[Latest version]}\fi}
 \rfoot{\small Page \thepage{} of \pageref*{LastPage}}
@@ -83,6 +83,7 @@
 \let \@address \relax \def\@address{}
 \let \@phone \relax \def\@phone{}
 \let \@email \relax \def\@email{}
+\let \@lasttitle \relax \def\@lasttitle{curriculum vitae}
 \let \@latestver \relax \def\@latestver{}
 \let \@lastupdate \relax \def\@lastupdate{\today}
 
@@ -91,6 +92,7 @@
 \def \address#1{\def\@address{#1}}
 \def \phone#1{\def\@phone{#1}}
 \def \email#1{\def\@email{#1}}
+\def \lasttitle#1{\def\@lasttitle{#1}}
 \def \latestver#1{\def\@latestver{#1}}
 \def \lastupdate#1{\def\@lastupdate{#1}}
 
