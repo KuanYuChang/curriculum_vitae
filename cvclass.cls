@@ -54,7 +54,7 @@
 %% Section title
 
 \titleformat{\section}
-    {\fontfamily{ptm}\selectfont\Large\scshape\bfseries}
+    {\selectfont\Large\scshape\bfseries}
     {}{0em}{}[{\vspace{-2pt}\titlerule[.8pt]}]
 
 %% Page headers and footers
